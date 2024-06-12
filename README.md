@@ -8,10 +8,9 @@
 - [Licença](#Licença)
 
 ## Descrição
-### Projeto de automação da GUI (Interface Gráfica do Usuário) utilizando python + pyautogui.
+Projeto de automação da GUI (Interface Gráfica do Usuário) utilizando python + pyautogui.
 
-### O projeto consiste em automatizar o seguinte processo: 
-
+O projeto consiste em automatizar o seguinte processo: 
 ```
 1. Clica com o ponteiro do mouse sob uma coordenada da tela.
 2. Esperar 1s
@@ -36,24 +35,20 @@ pyautogui
 ## Execução
 
 Opcional: Para obter as coordenadas, desloque o ponteiro do mouse até o local desejado e execute o arquivo "coordenadas.py".
-
 ```
 python3 coordenadas.py
 ```
 opcional: Modifique as coordenadas na linha 9 no arquivo "scripy.py".
-
 ```
 posicao_botao = (1312, 733)
 ```
 
 opcional: Modifique o tempo de execução na linha 4 no arquivo "scripy.py".
-
 ```
 tempo_total = 10
 ```
 
 Execute o arquivo "scripy.py".
-
 ```
 python3 script.py
 ```
