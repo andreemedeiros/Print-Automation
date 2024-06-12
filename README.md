@@ -77,7 +77,7 @@ Contribution to the project [Print Automation](https://github.com/andreemedeiros
 
 ## Referências
 
-- [Official pyautogui documentation]([https://www.exemplo.com](https://pyautogui.readthedocs.io/en/latest/#)) - Uma breve descrição do conteúdo ou o motivo pelo qual está referenciando.
+[Official pyautogui documentation](https://pyautogui.readthedocs.io/en/latest/#).
 
 
 ## License
