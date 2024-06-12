@@ -69,7 +69,7 @@ python3 script.py
 
 ## Author
 
-* **André Medeiros** - [André Medeiros](https://github.com/andreemedeiros)
+[André Medeiros](https://github.com/andreemedeiros)
 
 Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors).
 
