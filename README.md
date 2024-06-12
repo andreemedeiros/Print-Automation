@@ -1,6 +1,6 @@
 # Project Print Automation
 
-## Índice
+## Index
 - [Description](#Description)
 - [Resources](#Resources)
 - [Execution](#Execution)
