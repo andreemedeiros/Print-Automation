@@ -11,6 +11,10 @@ button_position = (1312, 733)  # replace with the correct values
 # Name of the folder to save the prints
 prints = 'Prints'
 
+# Create the folder if it does not exist
+if not os.path.exists(prints):
+    os.makedirs(prints)
+
 # Start time
 initial = time.time()
 
