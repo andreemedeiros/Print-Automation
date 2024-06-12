@@ -8,7 +8,7 @@
 - [License](#License)
 
 ## Description
-GUI (Graphical User Interface) automation project using python + pyautogui.
+GUI (Graphical User Interface) automation project using Python + pyautogui.
 
 The project consists of automating the following process:
 ```
