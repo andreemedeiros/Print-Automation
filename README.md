@@ -1,63 +1,63 @@
-# Print-Automation
+# Project Print Automation
 
 ## Índice
-- [Descrição](#Descrição)
-- [Recursos](#Recursos)
-- [Execução](#Execução)
-- [Autor](#Autor)
-- [Licença](#Licença)
+- [Description](#Description)
+- [Resources](#Resources)
+- [Execution](#Execution)
+- [Author](#Author)
+- [License](#License)
 
-## Descrição
-Projeto de automação da GUI (Interface Gráfica do Usuário) utilizando python + pyautogui.
+## Description
+GUI (Graphical User Interface) automation project using python + pyautogui.
 
-O projeto consiste em automatizar o seguinte processo: 
+The project consists of automating the following process:
 ```
-1. Clica com o ponteiro do mouse sob uma coordenada da tela.
-2. Esperar 1s
-3. printar a tela
-4. Esperar 1s
-5. Repetir o processo
+1. Click the mouse pointer on a coordinate on the screen;
+2. Whait 1s;
+3. Print to screen;
+4. Whait 1s;
+5. Repeat the process.
 ```
 
-OBS: O processo é repetido sucessivamente durante um período de tempo estabelecido em "scripy.py".
+OBS: The process is repeated successively over a period of time established in "scripy.py".
 
-OBS: Os prints gerados serão armazenados na pasta "prints".
+OBS: The generated prints will be stored in the "prints" folder.
 
-OBS: As coordenadas desejadas podem ser obtidas executando o arquivo "coordenadas.py".
+OBS: The desired coordinates can be obtained by running the "coordinates.py" file.
 
-## Recursos:
+## Resources
 ```
 Python 3.12.4
 
 pyautogui
 ```
 
-## Execução
+## Execution
 
-Opcional: Para obter as coordenadas, desloque o ponteiro do mouse até o local desejado e execute o arquivo "coordenadas.py".
+Optional: To obtain the coordinates, move the mouse pointer to the desired location and run the "coordinates.py" file.
 ```
-python3 coordenadas.py
+python3 coordinates.py
 ```
-opcional: Modifique as coordenadas na linha 9 no arquivo "scripy.py".
+optional: Modify the coordinates in line 9 in the "scripy.py" file.
 ```
-posicao_botao = (1312, 733)
-```
-
-opcional: Modifique o tempo de execução na linha 4 no arquivo "scripy.py".
-```
-tempo_total = 10
+button_position = (1312, 733)
 ```
 
-Execute o arquivo "scripy.py".
+optional: Modify the runtime on line 4 in the "scripy.py" file.
+```
+total_time = 10
+```
+
+Run the "scripy.py" file.
 ```
 python3 script.py
 ```
 
-## Autor
+## Author
 
 * **André Medeiros** - [André Medeiros](https://github.com/andreemedeiros)
 
-Contribuição no projeto [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors).
+Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors).
 
-## Licença
-Este projeto está licenciado sob a MIT License - veja a [LICENSE.md](LICENSE.md) para mais detalhes.
+## License
+This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for more details.

@@ -1,37 +1,37 @@
 import pyautogui, time, os
 
-# Tempo total de execução em segundos
-tempo_total = 10
-# Intervalo entre as ações em segundos
-intervalo = 1
+# Total execution time in seconds
+total_time = 10
+# Interval between actions in seconds
+interval = 1
 
-# Posição do botão a ser clicado (x, y)
-posicao_botao = (1312, 733)  # substitua pelos valores corretos
+# Position of the button to be clicked (x, y)
+button_position = (1312, 733)  # replace with the correct values
 
-# Nome da pasta para salvar os prints
+# Name of the folder to save the prints
 prints = 'Prints'
 
-# Tempo inicial
-inicio = time.time()
+# Start time
+initial = time.time()
 
-# Contador de prints
-contador = 1
+# Print counter
+counter = 1
 
-while (time.time() - inicio) < tempo_total:
-    # Clique no botão
-    pyautogui.click(posicao_botao)
+while (time.time() - initial) < total_time:
+    # Click on the button
+    pyautogui.click(button_position)
     
-    # Espera 1 segundo
+    # Whait 1 second
     time.sleep(1)
     
-    # Printa a tela
+    # Print to screen
     screenshot = pyautogui.screenshot()
-    screenshot.save(os.path.join(prints, f'print_{contador}.png'))
+    screenshot.save(os.path.join(prints, f'print_{counter}.png'))
     
-    # Incrementa o contador
-    contador += 1
+    # Increment the counter
+    counter += 1
 
-    # Espera 1 segundo
+    # Whait 1 second
     time.sleep(1)
 
-print("Automação concluída!")
+print("Automation complete!")
