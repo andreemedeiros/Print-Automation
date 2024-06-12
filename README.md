@@ -71,11 +71,11 @@ python3 script.py
 
 [André Medeiros](https://github.com/andreemedeiros)
 
-Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors).
+Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors)
 
 ## References
 
-[Official pyautogui documentation](https://pyautogui.readthedocs.io/en/latest/#).
+[Official pyautogui documentation](https://pyautogui.readthedocs.io/en/latest/#)
 
 
 ## License
