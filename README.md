@@ -3,8 +3,10 @@
 ## Index
 - [Description](#Description)
 - [Resources](#Resources)
+- [Installation](#Installation)
 - [Execution](#Execution)
 - [Author](#Author)
+- [References](#References)
 - [License](#License)
 
 ## Description
@@ -30,6 +32,18 @@ OBS: The desired coordinates can be obtained by running the "coordinates.py" fil
 Python 3.12.4
 
 pyautogui
+```
+
+## Installation
+
+to install Python 3.12.4 access: 
+```
+python.org
+```
+
+to install pyautogui run: 
+```
+python3 -m pip install pyautogui
 ```
 
 ## Execution
@@ -58,6 +72,13 @@ python3 script.py
 * **André Medeiros** - [André Medeiros](https://github.com/andreemedeiros)
 
 Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors).
+
+## References
+
+## Referências
+
+- [Official pyautogui documentation]([https://www.exemplo.com](https://pyautogui.readthedocs.io/en/latest/#)) - Uma breve descrição do conteúdo ou o motivo pelo qual está referenciando.
+
 
 ## License
 This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for more details.
