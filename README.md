@@ -75,8 +75,6 @@ Contribution to the project [Print Automation](https://github.com/andreemedeiros
 
 ## References
 
-## Referências
-
 [Official pyautogui documentation](https://pyautogui.readthedocs.io/en/latest/#).
 
 
