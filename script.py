@@ -14,6 +14,9 @@ prints = 'Prints'
 # Tempo inicial
 inicio = time.time()
 
+# Contador de prints
+contador = 1
+
 while (time.time() - inicio) < tempo_total:
     # Clique no botão
     pyautogui.click(posicao_botao)
@@ -23,9 +26,11 @@ while (time.time() - inicio) < tempo_total:
     
     # Printa a tela
     screenshot = pyautogui.screenshot()
-    timestamp = int(time.time())
-    screenshot.save(os.path.join(prints, f'screenshot_{timestamp}.png'))
+    screenshot.save(os.path.join(prints, f'print_{contador}.png'))
     
+    # Incrementa o contador
+    contador += 1
+
     # Espera 1 segundo
     time.sleep(1)
 
