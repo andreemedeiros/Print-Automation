@@ -8,29 +8,31 @@
 - [Licença](#Licença)
 
 ## Descrição
-Projeto de automação da GUI (Interface Gráfica do Usuário) utilizando python + pyautogui.
+### Projeto de automação da GUI (Interface Gráfica do Usuário) utilizando python + pyautogui.
 
-O projeto consiste em automatizar o seguinte processo: 
+### O projeto consiste em automatizar o seguinte processo: 
 
+```
 1. Clica com o ponteiro do mouse sob uma coordenada da tela.
 2. Esperar 1s
 3. printar a tela
 4. Esperar 1s
 5. Repetir o processo
+```
 
-O processo é repetido sucessivamente durante um período de tempo estabelecido em "scripy.py".
+OBS: O processo é repetido sucessivamente durante um período de tempo estabelecido em "scripy.py".
 
-Os prints gerados serão armazenados na pasta "prints".
+OBS: Os prints gerados serão armazenados na pasta "prints".
 
-As coordenadas desejadas podem ser obtidas executando o arquivo "coordenadas.py".
+OBS: As coordenadas desejadas podem ser obtidas executando o arquivo "coordenadas.py".
 
 ## Recursos:
-
 ```
 Python 3.12.4
 
 pyautogui
 ```
+
 ## Execução
 
 Opcional: Para obter as coordenadas, desloque o ponteiro do mouse até o local desejado e execute o arquivo "coordenadas.py".
