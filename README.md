@@ -32,6 +32,10 @@ OBS: The desired coordinates can be obtained by running the "coordinates.py" fil
 Python 3.12.4
 
 pyautogui
+
+optional: tkinter
+
+optional: pyinstaller
 ```
 
 ## Installation
@@ -44,6 +48,21 @@ python.org
 to install pyautogui run: 
 ```
 python3 -m pip install pyautogui
+```
+
+optional: to install tkinter run: 
+```
+python3 pip install tkinter
+```
+
+optional: to install pyinstaller run: 
+```
+python3 -m pip install pyinstaller
+```
+
+optional: to generate executable run:
+```
+python -m PyInstaller --onefile --noconsole interface.py
 ```
 
 ## Execution

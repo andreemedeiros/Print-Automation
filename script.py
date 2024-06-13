@@ -6,7 +6,7 @@ total_time = 10
 interval = 1
 
 # Position of the button to be clicked (x, y)
-button_position = (1312, 733)  # replace with the correct values
+button_position = (812, 471)
 
 # Name of the folder to save the prints
 prints = 'Prints'
