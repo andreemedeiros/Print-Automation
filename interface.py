@@ -1,15 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import subprocess
-import os
-
-# Função para executar o script.py
-def executar_rpa():
-    try:
-        subprocess.run(["python", "script.py"], check=True)
-        messagebox.showinfo("Sucesso", "Script RPA executado com sucesso!")
-    except subprocess.CalledProcessError as e:
-        messagebox.showerror("Erro", f"Ocorreu um erro: {e}")
+import subprocess, os
 
 # Função para exibir mensagem e executar coordinates.py após 5 segundos
 def obter_coordenadas():
@@ -25,6 +16,7 @@ def exibir_coordenadas():
     except FileNotFoundError:
         messagebox.showerror("Erro", "Arquivo de coordenadas não encontrado.")
 
+
 # Função para executar coordinates.py
 def executar_coordinates():
     try:
@@ -33,10 +25,58 @@ def executar_coordinates():
     except subprocess.CalledProcessError as e:
         messagebox.showerror("Erro", f"Ocorreu um erro: {e}")
 
+# Função para executar o script.py
+def executar_rpa():
+    try:
+        subprocess.run(["python", "script.py"], check=True)
+        messagebox.showinfo("Sucesso", "Script executado com sucesso!")
+        abrir_prints()  # Chama a função para abrir os prints
+        root.iconify()  # Minimiza a janela principal
+    except subprocess.CalledProcessError as e:
+        messagebox.showerror("Erro", f"Ocorreu um erro: {e}")
+
+# Função para abrir a pasta onde os prints foram gerados e abrir o primeiro print
+def abrir_prints():
+    try:
+        pasta_prints = os.path.join(os.getcwd(), "prints")  # Caminho absoluto para a pasta "prints"
+        subprocess.Popen(["explorer", pasta_prints])  # Abre a pasta "prints" no Explorador de Arquivos
+
+        # Abrir o primeiro print (por exemplo, print_1.png)
+        listar_prints = os.listdir(pasta_prints)
+        for arquivo in listar_prints:
+            if arquivo.startswith("print_1"):
+                subprocess.Popen(["explorer", os.path.join(pasta_prints, arquivo)])
+                break  # Para no primeiro arquivo encontrado
+    except OSError:
+        messagebox.showerror("Erro", "Não foi possível abrir a pasta de prints.")
+
+# Função para modificar o tempo total em script.py
+def modificar_total_time():
+    novo_tempo = entry_tempo.get()
+
+    try:
+        with open('script.py', 'r') as file:
+            lines = file.readlines()
+
+        with open('script.py', 'w') as file:
+            for line in lines:
+                if line.startswith('total_time ='):
+                    file.write(f'total_time = {novo_tempo}\n')
+                else:
+                    file.write(line)
+
+        messagebox.showinfo("Sucesso", f"Tempo modificado para {novo_tempo}.")
+    except Exception as e:
+        messagebox.showerror("Erro", f"Ocorreu um erro ao modificar o tempo: {e}")
+
+# Função para alterar o total_time em script.py
+def btn_modificar_tempo_click():
+    modificar_total_time()
+
 # Configuração da interface gráfica
 root = tk.Tk()
 root.title("Interface RPA")
-root.geometry("300x200")
+root.geometry("240x200")
 
 # Adicionando um botão para obter coordenadas do mouse
 btn_coordenadas = tk.Button(root, text="Obter Coordenadas do Mouse", command=obter_coordenadas)
@@ -45,6 +85,15 @@ btn_coordenadas.pack(pady=10)
 # Adicionando um botão para executar o script RPA
 btn_executar = tk.Button(root, text="Executar RPA", command=executar_rpa)
 btn_executar.pack(pady=10)
+
+# Botão para modificar o tempo
+btn_modificar_tempo = tk.Button(root, text="Modificar Tempo em script.py", command=btn_modificar_tempo_click)
+btn_modificar_tempo.pack(pady=10)
+
+# Campo de entrada para o novo tempo
+tk.Label(root, text="Novo Tempo:").pack()
+entry_tempo = tk.Entry(root)
+entry_tempo.pack()
 
 # Função a ser chamada quando a janela for fechada
 def on_close():

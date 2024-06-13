@@ -34,8 +34,6 @@ Python 3.12.4
 pyautogui
 
 optional: tkinter
-
-optional: pyinstaller
 ```
 
 ## Installation
@@ -55,25 +53,11 @@ optional: to install tkinter run:
 python3 pip install tkinter
 ```
 
-optional: to install pyinstaller run: 
-```
-python3 -m pip install pyinstaller
-```
-
-optional: to generate executable run:
-```
-python -m PyInstaller --onefile --noconsole interface.py
-```
-
 ## Execution
 
 Optional: To obtain the coordinates, move the mouse pointer to the desired location and run the "coordinates.py" file.
 ```
 python3 coordinates.py
-```
-optional: Modify the coordinates in line 9 in the "scripy.py" file.
-```
-button_position = (1312, 733)
 ```
 
 optional: Modify the runtime on line 4 in the "scripy.py" file.
