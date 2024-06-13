@@ -1,7 +1,7 @@
 import pyautogui, time, os
 
 # Total execution time in seconds
-total_time = 1
+total_time = 10
 # Interval between actions in seconds
 interval = 1
 
@@ -11,7 +11,7 @@ def modificar_total_time(novo_tempo):
     total_time = novo_tempo
 
 # Position of the button to be clicked (x, y)
-button_position = (172, 483)
+button_position = (809, 456)
 
 # Name of the folder to save the prints
 prints = 'Prints'
