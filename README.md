@@ -12,7 +12,7 @@
 ## Description
 Desktop Application Project + RPA (Robotic Process Automation) to automate login to the Amazon website and print the best-selling products using Python + pyautogui + tkinter.
 
-![](images/App.png)
+![](images/app.png)
 
 The project consists of automating the following process:
 ```
@@ -28,14 +28,14 @@ The project consists of automating the following process:
 10. Press enter;
 11. Write password;
 12. Press enter;
-13. Click on the position of img_0.png;
-14. Click on the position of img_1.png;
-15. Identify the position of image 2.png and start a 6x Loop to obtain a print of each session;
+13. Click on the position of image_0.png;
+14. Click on the position of image_1.png;
+15. Identify the position of image_2.png and start a 6x Loop to obtain a print of each session;
     11.1. Screenshot;
     11.2. Click button.
 16. Return to top of page;
 17. Position the mouse over the login area;
-18. Log out of the website;
+18. Logout on website;
 19. Open screenshots.
 ```
 
@@ -75,18 +75,18 @@ python3 pip install tkinter, time, threading, os, subprocess
 
 ## Execution
 
-Run the "interface.py" file:
+1. Run the "interface.py" file:
 ```
 python3 interface.py
 ```
 
-Enter the browser you want to use; 
+2. Optional: Enter the browser you want to use; 
 
-Optional: Enter a valid email and password to log in to the Amazon website;
+3. Optional: Enter a valid email and password to log in to the Amazon website;
 
-Click on the coordinate buttons and position the mouse pointer over the maximize, url and login coordinate locations;
+4. Optional: Click on the coordinate buttons and position the mouse pointer over the maximize, url and login coordinate locations;
 
-Click on the run button and wait for the automation.
+5. Click on the run button and wait for the automation.
 
 ## Author
 

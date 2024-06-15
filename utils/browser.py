@@ -1,8 +1,8 @@
 import pyautogui, time
 
-def navegador_system(maximize_button, link_button, url):
+def browser_system(maximize_button, link_button, url):
     try:
-        # 04. Click the mouse pointer on button 1 for maximize a tela
+        # 04. Click the mouse pointer on button 1 to maximize the screen
         pyautogui.click(maximize_button)
         time.sleep(2)
         
@@ -10,13 +10,13 @@ def navegador_system(maximize_button, link_button, url):
         pyautogui.click(link_button)
         time.sleep(2)
         
-        # 06. Escreve o link do site
+        # 06. Write the website URL
         pyautogui.write(url)
 
-        # 07. Aperta enter
+        # 07. Press enter
         pyautogui.press('enter')
         time.sleep(2)
         
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        print(f"An error has occurred: {str(e)}")
 

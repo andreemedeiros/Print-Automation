@@ -1,6 +1,6 @@
 import pyautogui, time, os
 
-# Faz login no site
+# Log on website
 def login_system(login_button, email, password):
     try:
         # 08. Click the mouse pointer on button 3 for login
@@ -10,36 +10,36 @@ def login_system(login_button, email, password):
         # 09. Write e-mail
         pyautogui.write(email)
 
-        # 10. Aperta enter
+        # 10. Press enter
         pyautogui.press('enter')
         time.sleep(2)
         
         # 11. Write password
         pyautogui.write(password)
 
-        # 12. Aperta enter
+        # 12. Press enter
         pyautogui.press('enter')
         time.sleep(2)
 
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        print(f"An error has occurred: {str(e)}")
 
-# Faz logout no site
+# logoff on website
 def logout_system(login_button):
     try:
-        # 16. Volta para o início da página
+        # 16. Return to top of page
         pyautogui.scroll(3350)
 
-        # 17. Posiciona o mouse sobre a área de login
+        # 17. Position the mouse over the login area
         pyautogui.moveTo(login_button)
         time.sleep(2)
         
-        # 18. Faz logout no site
+        # 18. Logout on website
         if pyautogui.locateCenterOnScreen(os.path.join("images", "image_3.png")):
             pyautogui.moveTo(pyautogui.locateCenterOnScreen(os.path.join("images", "image_3.png")))
             pyautogui.click()
         else:
-            print("Imagem não encontrada na tela.")      
+            print("Image not found on screen.")      
               
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        print(f"An error has occurred: {str(e)}")

@@ -1,22 +1,22 @@
 import pyautogui
-from utils.print import print_click
-from utils.print import abrir_prints
+from utils.print import print_system
+from utils.print import openprint_system
 from utils.login import login_system
 from utils.login import logout_system
-from utils.navegador import navegador_system
-from utils.inicializar import inicializar_system
-from utils.img_posicao import img_posicao_system
+from utils.browser import browser_system
+from utils.initialize import initialize_system
+from utils.position import position_system
 
-navegador = 'chrome'
-
+# Global variables
+browser = 'chrome'
 maximize_button = (1306, 29)
 link_button = (708, 61)
 url = "https://www.amazon.com.br"
-
 login_button = (1051, 146) 
 email = "example@example.com"
-password = "sua_senha_aqui"
+password = "your_password_here"
 
+# Automation principal script
 def main():
     try:
 
@@ -24,28 +24,28 @@ def main():
         count_f = 5
 
         # 01 a 03
-        inicializar_system(navegador)
+        initialize_system(browser)
         # 04 a 07
-        navegador_system(maximize_button, link_button, url)
+        browser_system(maximize_button, link_button, url)
         # 08 a 12
         login_system(login_button, email, password)
         # 13 a 14
-        img_posicao_system()
+        position_system()
         # 15
         while count_i < 30:
-            print_click(count_i, count_f)
+            print_system(count_i, count_f)
             pyautogui.scroll(-550)
             count_i += 5
             count_f += 5
         # 16 a 18
         logout_system(login_button)
         # 19
-        abrir_prints()
+        openprint_system()
 
-        print("Processo concluído com sucesso!")
+        print("Automation completed successfully!")
 
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        print(f"An error has occurred: {str(e)}")
 
 if __name__ == "__main__":
     main()
