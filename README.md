@@ -39,9 +39,11 @@ The project consists of automating the following process:
 19. Open screenshots.
 ```
 
+OBS: The desired coordinates can be obtained by click on the coordinates buttons.
+
 OBS: The generated prints will be stored in the "prints" folder.
 
-OBS: The desired coordinates can be obtained by click on the coordinates buttons.
+![](images/result.png)
 
 ## Resources
 ```
