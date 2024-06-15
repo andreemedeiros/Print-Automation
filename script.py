@@ -12,7 +12,7 @@ browser = 'chrome'
 maximize_button = (1306, 29)
 link_button = (914, 60)
 url = "https://www.amazon.com.br"
-login_button = (1051, 146) 
+login_button = (1072, 114) 
 email = "example@example.com"
 password = "your_password_here"
 
