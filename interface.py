@@ -1,110 +1,101 @@
 import tkinter as tk
 from tkinter import messagebox
-import subprocess, os, time
+import time, pyautogui, threading, script
 
-# Função para exibir mensagem e executar coordinates.py após 5 segundos
-def obter_coordenadas():
-    messagebox.showinfo("Aguardando", "O script de coordenadas será executado em 5 segundos.")
-    root.after(5000, executar_coordinates)
+class AutomationApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Automation App")
 
-# Função para ler as coordenadas do arquivo e exibir na caixa de diálogo
-def exibir_coordenadas():
-    try:
-        with open('coordenadas.txt', 'r') as f:
-            coordenadas = f.read()
-        messagebox.showinfo("Coordenadas do Mouse", f"As coordenadas do mouse são: {coordenadas}")
-    except FileNotFoundError:
-        messagebox.showerror("Erro", "Arquivo de coordenadas não encontrado.")
+        # Adiciona a frase na parte superior da interface
+        info_label = tk.Label(
+            self.root, 
+            text="Aplicativo de automação para fazer login no site:\n'www.amazon.com.br' e printar os produtos\nmais vendidos.", 
+            justify=tk.LEFT, 
+            wraplength=400,
+            font=("Arial", 8, "bold"),
+            fg="black"
+        )
+        info_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
 
+        # Variáveis para armazenar as coordenadas dos botões
+        self.button_coords = [None] * 3  # Coordenadas para maximizar tela, digitar URL e login
 
-# Função para executar coordinates.py
-def executar_coordinates():
-    try:
-        subprocess.run(["python", "coordinates.py"], check=True)
-        exibir_coordenadas()
-    except subprocess.CalledProcessError as e:
-        messagebox.showerror("Erro", f"Ocorreu um erro: {e}")
+        # Labels e entradas para navegador, email e senha
+        self.create_label_and_entry("Navegador:", 1)
+        self.browser_entry = self.create_entry(1, default=script.navegador)
 
-# Função para executar o script.py
-def executar_rpa():
-    try:
-        subprocess.run(["python", "script.py"], check=True)
-        messagebox.showinfo("Sucesso", "Script executado com sucesso!")
-        abrir_prints()  # Chama a função para abrir os prints
-        root.iconify()  # Minimiza a janela principal
-    except subprocess.CalledProcessError as e:
-        messagebox.showerror("Erro", f"Ocorreu um erro: {e}")
+        self.create_label_and_entry("E-mail:", 2)
+        self.email_entry = self.create_entry(2, default=script.email)
 
-# Função para abrir a pasta onde os prints foram gerados e abrir o primeiro print
-def abrir_prints():
-    try:
-        pasta_prints = os.path.join(os.getcwd(), "prints")  # Caminho absoluto para a pasta "prints"
-        subprocess.Popen(["explorer", pasta_prints])  # Abre a pasta "prints" no Explorador de Arquivos
+        self.create_label_and_entry("Senha:", 3)
+        self.password_entry = self.create_entry(3, show='*', default=script.password)
 
-        # Aguardar 2 segundos antes de abrir o primeiro print
-        time.sleep(2)
+        # Botões para obter coordenadas
+        self.create_coord_button("Obter Coordenadas 1 (Maximizar Tela)", 0, 4)
+        self.create_coord_button("Obter Coordenadas 2 (Digitar URL)", 1, 5)
+        self.create_coord_button("Obter Coordenadas 3 (Botão Login)", 2, 6)
 
-        # Abrir o primeiro print (por exemplo, print_1.png)
-        listar_prints = os.listdir(pasta_prints)
-        for arquivo in listar_prints:
-            if arquivo.startswith("print_1"):
-                subprocess.Popen(["explorer", os.path.join(pasta_prints, arquivo)])
-                break  # Para no primeiro arquivo encontrado
-    except OSError:
-        messagebox.showerror("Erro", "Não foi possível abrir a pasta de prints.")
+        # Botão para executar a automação
+        execute_button = tk.Button(self.root, text="Executar Automação", command=self.execute_automation, bg='steel blue', fg='white')
+        execute_button.grid(row=7, column=0, columnspan=2, pady=10)
 
-# Função para alterar o total_time em script.py
-def btn_modificar_tempo_click():
-    novo_tempo = entry_tempo.get()
+    def create_label_and_entry(self, text, row):
+        """Cria um rótulo e uma entrada na interface gráfica."""
+        label = tk.Label(self.root, text=text)
+        label.grid(row=row, column=0, padx=10, pady=5, sticky=tk.W)
 
-    try:
-        with open('script.py', 'r') as file:
-            lines = file.readlines()
+    def create_entry(self, row, show=None, default=""):
+        """Cria uma entrada de texto na interface gráfica."""
+        entry = tk.Entry(self.root, show=show)
+        entry.insert(0, default)
+        entry.grid(row=row, column=1, padx=10, pady=5)
+        return entry
 
-        with open('script.py', 'w') as file:
-            for line in lines:
-                if line.startswith('total_time ='):
-                    file.write(f'total_time = {novo_tempo}\n')
-                else:
-                    file.write(line)
+    def create_coord_button(self, text, index, row):
+        """Cria um botão para obter coordenadas de um botão específico."""
+        button = tk.Button(self.root, text=text, command=lambda: self.get_button_coords(index))
+        button.grid(row=row, column=0, columnspan=2, pady=5)
 
-        messagebox.showinfo("Sucesso", f"Tempo modificado para {novo_tempo}.")
-    except Exception as e:
-        messagebox.showerror("Erro", f"Ocorreu um erro ao modificar o tempo: {e}")
+    def get_coords(self):
+        """Espera 5 segundos e retorna as coordenadas atuais do mouse."""
+        time.sleep(5)
+        return pyautogui.position()
 
-# Configuração da interface gráfica
-root = tk.Tk()
-root.title("Interface RPA")
-root.geometry("240x200")
+    def show_message_and_get_coords(self, index):
+        """Mostra uma mensagem, espera 5 segundos e obtém as coordenadas do botão."""
+        messagebox.showinfo("Informação", f"Obtendo coordenadas do Botão {index+1} em 5 segundos...")
+        coords = self.get_coords()
+        self.button_coords[index] = coords
+        messagebox.showinfo(f"Coordenadas do Botão {index+1}", f"Coordenadas: {coords}")
 
-# Botão para obter coordenadas do mouse
-btn_coordenadas = tk.Button(root, text="Obter Coordenadas do ponteiro", command=obter_coordenadas)
-btn_coordenadas.pack(pady=10)
+    def get_button_coords(self, index):
+        """Inicia uma thread para obter as coordenadas do botão."""
+        threading.Thread(target=self.show_message_and_get_coords, args=(index,)).start()
 
-# Botão para modificar o tempo
-btn_modificar_tempo = tk.Button(root, text="Modificar Tempo de execução", command=btn_modificar_tempo_click)
-btn_modificar_tempo.pack(pady=10)
+    def execute_automation(self):
+        """Executa o processo de automação com base nas coordenadas e informações inseridas."""
+        script.navegador = self.browser_entry.get()
+        script.email = self.email_entry.get()
+        script.password = self.password_entry.get()
 
-# Campo de entrada para o novo tempo
-tk.Label(root, text="Novo Tempo:").pack()
-entry_tempo = tk.Entry(root)
-entry_tempo.pack()
+        if not all(self.button_coords):
+            messagebox.showwarning("Aviso", "Algumas coordenadas não foram definidas. Utilizando coordenadas padrão.")
+            default_coords = [script.maximize_button, script.link_button, script.login_button]
+            self.button_coords = [self.button_coords[i] if self.button_coords[i] is not None else default_coords[i] for i in range(3)]
+        
+        script.maximize_button, script.link_button, script.login_button = self.button_coords
 
-# Botão para executar o script
-btn_executar = tk.Button(root, text="Executar Automação", command=executar_rpa)
-btn_executar.pack(pady=10)
+        messagebox.showinfo("Iniciando", "Automação iniciada!")
 
-# Função a ser chamada quando a janela for fechada
-def on_close():
-    try:
-        os.remove('coordenadas.txt')
-        print("Arquivo coordenadas.txt removido com sucesso.")
-    except FileNotFoundError:
-        print("Arquivo coordenadas.txt não encontrado.")
-    root.destroy()
+        # Chama a função de automação do arquivo script.py
+        try:
+            script.main()
+            messagebox.showinfo("Concluído", "Processo concluído com sucesso!")
+        except Exception as e:
+            messagebox.showerror("Erro", f"Ocorreu um erro: {str(e)}")
 
-# Configurar a função on_close para ser chamada ao fechar a janela
-root.protocol("WM_DELETE_WINDOW", on_close)
-
-# Executar o loop da interface
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AutomationApp(root)
+    root.mainloop()

@@ -1,46 +1,51 @@
-import pyautogui, time, os
+import pyautogui
+from utils.print import print_click
+from utils.print import abrir_prints
+from utils.login import login_system
+from utils.login import logout_system
+from utils.navegador import navegador_system
+from utils.inicializar import inicializar_system
+from utils.img_posicao import img_posicao_system
 
-# Total execution time in seconds
-total_time = 10
-# Interval between actions in seconds
-interval = 1
+navegador = 'chrome'
 
-# Função para modificar o tempo total
-def modificar_total_time(novo_tempo):
-    global total_time
-    total_time = novo_tempo
+maximize_button = (1306, 29)
+link_button = (708, 61)
+url = "https://www.amazon.com.br"
 
-# Position of the button to be clicked (x, y)
-button_position = (809, 456)
+login_button = (1051, 146) 
+email = "example@example.com"
+password = "sua_senha_aqui"
 
-# Name of the folder to save the prints
-prints = 'Prints'
+def main():
+    try:
 
-# Create the folder if it does not exist
-if not os.path.exists(prints):
-    os.makedirs(prints)
+        count_i = 0
+        count_f = 5
 
-# Start time
-initial = time.time()
+        # 01 a 03
+        inicializar_system(navegador)
+        # 04 a 07
+        navegador_system(maximize_button, link_button, url)
+        # 08 a 12
+        login_system(login_button, email, password)
+        # 13 a 14
+        img_posicao_system()
+        # 15
+        while count_i < 30:
+            print_click(count_i, count_f)
+            pyautogui.scroll(-550)
+            count_i += 5
+            count_f += 5
+        # 16 a 18
+        logout_system(login_button)
+        # 19
+        abrir_prints()
 
-# Print counter
-counter = 1
+        print("Processo concluído com sucesso!")
 
-while (time.time() - initial) < total_time:
-    # Click on the button
-    pyautogui.click(button_position)
-    
-    # Whait 1 second
-    time.sleep(1)
-    
-    # Print to screen
-    screenshot = pyautogui.screenshot()
-    screenshot.save(os.path.join(prints, f'print_{counter}.png'))
-    
-    # Increment the counter
-    counter += 1
+    except Exception as e:
+        print(f"Ocorreu um erro: {str(e)}")
 
-    # Whait 1 second
-    time.sleep(1)
-
-print("Automation complete!")
+if __name__ == "__main__":
+    main()
