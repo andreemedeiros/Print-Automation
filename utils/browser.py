@@ -1,9 +1,9 @@
 import pyautogui, time
 
-def browser_system(maximize_button, link_button, url):
+def browser_system(link_button, url):
     try:
-        # 04. Click the mouse pointer on button 1 to maximize the screen
-        pyautogui.click(maximize_button)
+        # 04. Press win + up to maximize the screen
+        pyautogui.hotkey('win', 'up')
         time.sleep(2)
         
         # 05. Click the mouse pointer on button 2 for link website

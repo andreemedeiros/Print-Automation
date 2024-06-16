@@ -9,7 +9,6 @@ from utils.position import position_system
 
 # Global variables
 browser = 'chrome'
-maximize_button = (1306, 29)
 link_button = (914, 60)
 url = "https://www.amazon.com.br"
 login_button = (1072, 114) 
@@ -26,7 +25,7 @@ def main():
         # 01 a 03
         initialize_system(browser)
         # 04 a 07
-        browser_system(maximize_button, link_button, url)
+        browser_system(link_button, url)
         # 08 a 12
         login_system(login_button, email, password)
         # 13 a 14

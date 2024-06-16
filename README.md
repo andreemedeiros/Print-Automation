@@ -19,7 +19,7 @@ The project consists of automating the following process:
 01. Press the Windows key;
 02. Write chrome;
 03. Press enter;
-04. Click the mouse pointer on button 1 to maximize the screen;
+04. Press win + up to maximize the screen;
 05. Click the mouse pointer on button 2 for link website;
 06. Write the website URL;
 07. Press enter;
@@ -56,6 +56,8 @@ Python libraries:
   - threading
   - os
   - subprocess
+
+Browser: Chrome
 ```
 
 ## Installation
@@ -81,14 +83,9 @@ python3 pip install tkinter, time, threading, os, subprocess
 ```
 python3 interface.py
 ```
+Optional: Enter a valid account to log in Amazon website;
 
-2. Optional: Enter the browser you want to use; 
-
-3. Optional: Enter a valid email and password to log in to the Amazon website;
-
-4. Optional: Click on the coordinate buttons and position the mouse pointer over the maximize, url and login coordinate locations;
-
-5. Click on the run button and wait for the automation.
+2. Click on the run button and wait for the automation.
 
 ## Author
 
