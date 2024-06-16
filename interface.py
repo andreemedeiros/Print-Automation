@@ -19,7 +19,7 @@ class AutomationApp:
         info_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
 
         # Button to open login window
-        login_button = tk.Button(self.root, text="Open Login Window", command=self.open_login_window, bg='white', fg='black')
+        login_button = tk.Button(self.root, text="Login", command=self.open_login_window, bg='white', fg='black')
         login_button.grid(row=1, column=0, columnspan=2, pady=10)
 
         # Button to run automation
