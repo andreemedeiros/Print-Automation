@@ -80,9 +80,9 @@ python3 pip install tkinter, time, threading, os, subprocess
 ```
 python3 interface.py
 ```
-Optional: Enter a valid account to log in Amazon website;
+2. Enter a valid account to log in Amazon website;
 
-2. Click on the run button and wait for the automation.
+3. Click on the run button and wait for the automation.
 
 ## Author
 
