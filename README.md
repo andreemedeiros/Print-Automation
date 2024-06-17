@@ -10,7 +10,7 @@
 - [License](#License)
 
 ## Description
-Desktop Application Project + RPA (Robotic Process Automation) to automate login to the Amazon website and print the best-selling products using Python + pyautogui + tkinter.
+Desktop Application Project + RPA (Robotic Process Automation) to automate login in Amazon website and print the best-selling products using Python + pyautogui + tkinter.
 
 ![](images/interface.png)
 
