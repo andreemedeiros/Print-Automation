@@ -1,15 +1,15 @@
 import pyautogui, time, os, subprocess
 
-# Name of the folder to save the prints
+# Nome da pasta para salvar as capturas
 prints = 'Prints'
 
-# Create the folder if it does not exist
+# Cria a pasta se ela não existir
 if not os.path.exists(prints):
     os.makedirs(prints)
 
 def print_system(counter_print_i, counter_print_f):
-    try:                
-        # 14. Identify the position of image_2.png
+    try:
+        # 14. Identifica a posição da image_2.png
         image2_path = os.path.join("images", "image_2.png")
         image2_pos = pyautogui.locateCenterOnScreen(image2_path)
         if image2_pos:
@@ -19,14 +19,17 @@ def print_system(counter_print_i, counter_print_f):
         else:
             raise Exception(f"Image {image2_path} not found.")
         
-        # 14. Start a 6x Loop to obtain a print of each session
-        while (counter_print_i <= counter_print_f):
-          # Print to screen
-          pyautogui.screenshot(os.path.join("prints", f"print_{counter_print_i}.png"))
-          # Click the mouse na posição on image_2.png sucessivamente
-          pyautogui.click(image2_pos)
-          time.sleep(2)
-          counter_print_i += 1
+        # 14. Inicia um loop 6x para obter uma captura de cada sessão
+        while counter_print_i <= counter_print_f:
+            # Captura de tela de uma região específica
+            screenshot = pyautogui.screenshot(region=(220, 165, 1100, 600))
+            # Salva a captura de tela no diretório especificado
+            screenshot.save(os.path.join(prints, f"print_{counter_print_i}.png"))
+            
+            # Clica na posição da image_2.png sucessivamente
+            pyautogui.click(image2_pos)
+            time.sleep(2)
+            counter_print_i += 1
 
     except Exception as e:
         print(f"An error has occurred: {str(e)}")
@@ -45,3 +48,4 @@ def openprint_system():
                 break
     except OSError:
         print("Erro", "Unable to open print folder.")
+

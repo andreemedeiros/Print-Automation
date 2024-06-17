@@ -40,7 +40,7 @@ The project consists of automating the following process:
 
 OBS: The generated prints will be stored in the "prints" folder.
 
-![](images/result.png)
+![](images/res.png)
 
 ## Resources
 ```
