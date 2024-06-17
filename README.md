@@ -41,7 +41,7 @@ The project consists of automating the following process:
 
 OBS: The generated prints will be stored in the "prints" folder.
 
-screenshot generated
+Screenshot generated:
 ![](images/res.png)
 
 ## Resources
