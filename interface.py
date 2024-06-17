@@ -35,30 +35,52 @@ class AutomationApp:
         login_window = tk.Toplevel(self.root)
         login_window.title("Login")
 
+        # Default email and password
+        default_email = "example@example.com"
+        default_password = "your_password_here"
+
         # Labels and entries for email and password
         tk.Label(login_window, text="E-mail:").grid(row=0, column=0, padx=10, pady=5, sticky=tk.W)
         self.email_entry = tk.Entry(login_window)
+        self.email_entry.insert(0, default_email)  # Insert default email
         self.email_entry.grid(row=0, column=1, padx=10, pady=5)
 
         tk.Label(login_window, text="Password:").grid(row=1, column=0, padx=10, pady=5, sticky=tk.W)
         self.password_entry = tk.Entry(login_window, show='*')
+        self.password_entry.insert(0, default_password)  # Insert default password
         self.password_entry.grid(row=1, column=1, padx=10, pady=5)
 
         # Button to save login credentials
-        save_button = tk.Button(login_window, text="Save", command=login_window.destroy, bg='steel blue', fg='white')
+        save_button = tk.Button(login_window, text="Save", command=lambda: self.save_credentials(login_window), bg='steel blue', fg='white')
         save_button.grid(row=2, column=0, columnspan=2, pady=10)
+
+    def save_credentials(self, login_window):
+        """Save the login credentials to script.py and close the login window."""
+        script.email = self.email_entry.get()
+        script.password = self.password_entry.get()
+
+        # Read current content of script.py
+        with open('script.py', 'r') as f:
+            lines = f.readlines()
+
+        # Update email and password lines
+        updated_lines = []
+        for line in lines:
+            if line.startswith('email = '):
+                updated_lines.append(f"email = '{script.email}'\n")
+            elif line.startswith('password = '):
+                updated_lines.append(f"password = '{script.password}'\n")
+            else:
+                updated_lines.append(line)
+
+        # Write updated lines back to script.py
+        with open('script.py', 'w') as f:
+            f.writelines(updated_lines)
+
+        login_window.destroy()
 
     def execute_automation(self):
         """Executes the automation process."""
-        # Check if email and password are provided
-        if self.email_entry is not None and self.password_entry is not None:
-            script.email = self.email_entry.get()
-            script.password = self.password_entry.get()
-        else:
-            # Use default or notify the user
-            script.email = "default_email@example.com"
-            script.password = "default_password"
-
         messagebox.showinfo("Getting started", "Automation started!")
 
         # Calls the automation function from the script.py file

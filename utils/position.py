@@ -2,7 +2,7 @@ import pyautogui, time, os
 
 def position_system():
     try:
-        # 13. Click on the position of image_0.png
+        # 12. Click on the position of image_0.png
         image0_path = os.path.join("images", "image_0.png")
         image0_pos = pyautogui.locateCenterOnScreen(image0_path)
         if image0_pos:
@@ -11,7 +11,7 @@ def position_system():
         else:
             raise Exception(f"Image {image0_path} not found.")
         
-        # 14. Click on the position of image_1.png
+        # 13. Click on the position of image_1.png
         image1_path = os.path.join("images", "image_1.png")
         image1_pos = pyautogui.locateCenterOnScreen(image1_path)
         if image1_pos:

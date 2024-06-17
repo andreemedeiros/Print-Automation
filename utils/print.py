@@ -9,7 +9,7 @@ if not os.path.exists(prints):
 
 def print_system(counter_print_i, counter_print_f):
     try:                
-        # 15. Identify the position of image_2.png
+        # 14. Identify the position of image_2.png
         image2_path = os.path.join("images", "image_2.png")
         image2_pos = pyautogui.locateCenterOnScreen(image2_path)
         if image2_pos:
@@ -19,8 +19,8 @@ def print_system(counter_print_i, counter_print_f):
         else:
             raise Exception(f"Image {image2_path} not found.")
         
-        # 15. Start a 6x Loop to obtain a print of each session
-        for counter_print_i in range(counter_print_i, counter_print_f):
+        # 14. Start a 6x Loop to obtain a print of each session
+        while (counter_print_i <= counter_print_f):
           # Print to screen
           pyautogui.screenshot(os.path.join("prints", f"print_{counter_print_i}.png"))
           # Click the mouse na posição on image_2.png sucessivamente
@@ -37,7 +37,7 @@ def openprint_system():
         subprocess.Popen(["explorer", folder_prints])
         time.sleep(2)
 
-        # 19. Abrir o primeiro print
+        # 18. Abrir o primeiro print
         listar_prints = os.listdir(folder_prints)
         for file in listar_prints:
             if file.startswith("print_1"):

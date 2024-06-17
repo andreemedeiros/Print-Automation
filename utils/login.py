@@ -3,21 +3,21 @@ import pyautogui, time, os
 # Log on website
 def login_system(login_button, email, password):
     try:
-        # 08. Click the mouse pointer on button 3 for login
+        # 07. Click the mouse pointer on button 3 for login
         pyautogui.click(login_button)
         time.sleep(2)
 
-        # 09. Write e-mail
+        # 08. Write e-mail
         pyautogui.write(email)
 
-        # 10. Press enter
+        # 09. Press enter
         pyautogui.press('enter')
         time.sleep(2)
         
-        # 11. Write password
+        # 10. Write password
         pyautogui.write(password)
 
-        # 12. Press enter
+        # 11. Press enter
         pyautogui.press('enter')
         time.sleep(2)
 
@@ -27,14 +27,14 @@ def login_system(login_button, email, password):
 # logoff on website
 def logout_system(login_button):
     try:
-        # 16. Return to top of page
-        pyautogui.scroll(3350)
+        # 15. Return to top of page
+        pyautogui.scroll(3800)
 
-        # 17. Position the mouse over the login area
+        # 16. Position the mouse over the login area
         pyautogui.moveTo(login_button)
         time.sleep(2)
         
-        # 18. Logout on website
+        # 17. Logout on website
         if pyautogui.locateCenterOnScreen(os.path.join("images", "image_3.png")):
             pyautogui.moveTo(pyautogui.locateCenterOnScreen(os.path.join("images", "image_3.png")))
             pyautogui.click()

@@ -9,36 +9,35 @@ from utils.position import position_system
 
 # Global variables
 browser = 'chrome'
-link_button = (914, 60)
 url = "https://www.amazon.com.br"
-login_button = (1072, 114) 
-email = "example@example.com"
-password = "your_password_here"
+login_button = (1068, 146) 
+email = 'example@example.com'
+password = 'your_password_here'
 
 # Automation principal script
 def main():
     try:
 
-        count_i = 0
+        count_i = 1
         count_f = 5
 
         # 01 a 03
         initialize_system(browser)
-        # 04 a 07
-        browser_system(link_button, url)
-        # 08 a 12
+        # 04 a 06
+        browser_system(url)
+        # 07 a 11
         login_system(login_button, email, password)
-        # 13 a 14
+        # 12 a 13
         position_system()
-        # 15
+        # 14
         while count_i < 30:
             print_system(count_i, count_f)
             pyautogui.scroll(-550)
             count_i += 5
             count_f += 5
-        # 16 a 18
+        # 15 a 17
         logout_system(login_button)
-        # 19
+        # 18
         openprint_system()
 
         print("Automation completed successfully!")
