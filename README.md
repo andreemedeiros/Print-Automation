@@ -12,7 +12,7 @@
 ## Description
 Desktop Application Project + RPA (Robotic Process Automation) to automate login in Amazon website and print the best-selling products using Python + pyautogui + tkinter.
 
-![](images/interface.png)
+![](images/app.png)
 
 The project consists of automating the following process:
 ```

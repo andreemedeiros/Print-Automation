@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import script
+import script as script
 
 class AutomationApp:
     def __init__(self, root):
@@ -10,7 +10,7 @@ class AutomationApp:
         # Add the phrase at the top of the interface
         info_label = tk.Label(
             self.root, 
-            text="Automation application for login into the website:\n'www.amazon.com.br' and print the products\nbest sellers.", 
+            text="Automation application for login in website:\n'www.amazon.com.br' and print the products\nbest sellers.", 
             justify=tk.LEFT, 
             wraplength=400,
             font=("Arial", 8, "bold"),
