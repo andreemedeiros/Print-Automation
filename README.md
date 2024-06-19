@@ -94,6 +94,8 @@ python3 interface.py
 
 Contribution to the project [Print Automation](https://github.com/andreemedeiros/Print-Automation/graphs/contributors)
 
+Tutorial on [Youtube](https://youtu.be/1XwLo10gwKU)
+
 ## References
 
 [Official pyautogui documentation](https://pyautogui.readthedocs.io/en/latest/#)
